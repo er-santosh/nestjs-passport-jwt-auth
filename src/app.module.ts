@@ -2,6 +2,8 @@ import { DatabaseModule } from './database.module';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 import * as Joi from 'joi';
 
 @Module({
@@ -15,6 +17,8 @@ import * as Joi from 'joi';
       }),
     }),
     DatabaseModule,
+    UsersModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
