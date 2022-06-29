@@ -9,8 +9,8 @@ export class User {
   @Transform(({ value }) => value.toString())
   _id: ObjectId;
 
-  @Prop({ unique: true })
-  username: string;
+  @Prop()
+  fullname: string;
 
   @Prop({ unique: true })
   email: string;
@@ -18,6 +18,16 @@ export class User {
   @Prop()
   @Exclude()
   password: string;
+
+  @Prop({ default: false })
+  @Exclude()
+  is_admin: boolean;
+
+  @Prop({
+    default: null,
+  })
+  @Exclude()
+  public currentHashedRefreshToken?: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
